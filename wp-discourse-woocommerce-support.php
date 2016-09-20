@@ -8,8 +8,6 @@
 
 namespace WPDiscourse\WooCommerceSupport;
 
-use \WPDiscourse\Utilities\Utilities as DiscourseUtilities;
-
 add_action( 'plugins_loaded', __NAMESPACE__ . '\\init' );
 
 function init() {
@@ -20,20 +18,10 @@ function init() {
 }
 
 class WooCommerceSupport {
-	protected $options;
 
 	public function __construct() {
-		add_action( 'init', array( $this, 'setup_options' ) );
 		add_filter( 'woocommerce_login_redirect', array( $this, 'set_redirect' ) );
 		add_filter( 'woocommerce_product_review_count', array( $this, 'comments_number' ) );
-	}
-
-	public function setup_options() {
-		$this->options = DiscourseUtilities::get_options(
-			array(
-				'discourse_publish',
-			)
-		);
 	}
 
 	/**
@@ -62,7 +50,9 @@ class WooCommerceSupport {
 	 */
 	function comments_number( $count ) {
 		global $post;
-		if ( array_key_exists( 'allowed_post_types', $this->options ) && in_array( 'product', $this->options['allowed_post_types'], true ) ) {
+		$discourse_post_id = get_post_meta( $post->ID, 'discourse_post_id', true );
+
+		if ( $discourse_post_id > 0 ) {
 			$count = get_post_meta( $post->ID, 'discourse_comments_count', true );
 
 			return $count;
