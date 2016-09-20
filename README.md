@@ -1,18 +1,20 @@
 # WP Discourse WooCommerce Support
 
-This plugin allows you to integrate the WP Discourse plugin with WooCommerce.
+This plugin allows you to integrate the **WP Discourse** plugin with **WooCommerce**.
 
 ## What it does
 
 - hooks into the `woocommerce_login_redirect` filter to add the query parameters to the redirect path
-that are required for Discourse **Single Sign On** to work.
-- hooks into the `woocommerce_product_review_count` filter so that Discourse comments are used for
+that are required for **Discourse Single Sign On** to work.
+- hooks into the `woocommerce_product_review_count` filter so that **Discourse** comments are used for
 the review count.
 
 ## How to make it work
 
-This plugin depends on the [WP Discourse plugin](https://github.com/discourse/wp-discourse) being installed
-and actived on your site. If you have enabled Discourse SSO on your site, to use a WooCommerce login
+This plugin depends on both having a [Discourse forum](http://www.discourse.org/) and on having
+the [WP Discourse plugin](https://github.com/discourse/wp-discourse) installed and actived on your site.
+
+If you have enabled **Discourse SSO** on your site, to use a **WooCommerce** login
 page as your site's main login page requires setting the **login path** option in the **WP Discourse**
 settings. The **login path** option is found under the **SSO** tab of the **WP Discourse** settings page.
 If you would like your login page to be at `http://example.com/my-account`, then the login path in the
