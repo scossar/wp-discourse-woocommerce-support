@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WP Discourse WooCommerce Support
  * Description: Extends the WP Discourse plugin to allow it to be used with WooCommerce
- * Version: 0.1
+ * Version: 0.2
  * Author: scossar
  */
 
@@ -21,7 +21,7 @@ class WooCommerceSupport {
 
 	public function __construct() {
 		add_filter( 'woocommerce_login_redirect', array( $this, 'set_redirect' ) );
-		add_filter( 'woocommerce_product_review_count', array( $this, 'comments_number' ) );
+		add_filter( 'woocommerce_product_get_review_count', array( $this, 'comments_number' ) );
 	}
 
 	/**

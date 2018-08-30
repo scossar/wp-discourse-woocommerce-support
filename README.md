@@ -6,7 +6,7 @@ This plugin allows you to integrate the **WP Discourse** plugin with **WooCommer
 
 - hooks into the `woocommerce_login_redirect` filter to add the query parameters to the redirect path
 that are required for **Discourse Single Sign On** to work.
-- hooks into the `woocommerce_product_review_count` filter so that **Discourse** comments are used for
+- hooks into the `woocommerce_product_get_review_count` filter so that **Discourse** comments are used for
 the review count.
 
 ## How to make it work
