@@ -4,7 +4,7 @@ This plugin allows you to integrate the **WP Discourse** plugin with **WooCommer
 
 ## What it does
 
-- hooks into the `woocommerce_login_redirect` filter to add the query parameters to the redirect path
+- hooks into the `woocommerce_login_redirect` and `woocommerce_registration_redirect` filter to add the query parameters to the redirect path
 that are required for **Discourse Single Sign On** to work.
 - hooks into the `woocommerce_product_get_review_count` filter so that **Discourse** comments are used for
 the review count.
@@ -15,10 +15,10 @@ This plugin depends on both having a [Discourse forum](http://www.discourse.org/
 the [WP Discourse plugin](https://github.com/discourse/wp-discourse) installed and actived on your site.
 
 If you have enabled **Discourse SSO** on your site, to use a **WooCommerce** login
-page as your site's main login page requires setting the **login path** option in the **WP Discourse**
+page as your site's main login or registration page requires setting the **login path** option in the **WP Discourse**
 settings. The **login path** option is found under the **SSO** tab of the **WP Discourse** settings page.
 If you would like your login page to be at `http://example.com/my-account`, then the login path in the
-**WP Discourse** settings should be set to `/my-account`.
+**WP Discourse** settings should be set to `/my-account`. It also requires enabling the registration function on the **WooCommerce** my-account page via Woocommerce --> Settings --> Accounts & Privacy. 
 
 ## Installation
 
@@ -49,6 +49,7 @@ function my_namespace_wp_discourse_woocommerce_redirect( $redirect ) {
 	return $redirect;
 }
 add_filter( 'woocommerce_login_redirect', 'my_namespace_wp_discourse_woocommerce_redirect' );
+add_filter( 'woocommerce_registration_redirect', 'my_namespace_wp_discourse_woocommerce_redirect' );
 ```
 
 ```php
