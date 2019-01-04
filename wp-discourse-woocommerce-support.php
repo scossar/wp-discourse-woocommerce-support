@@ -21,6 +21,7 @@ class WooCommerceSupport {
 
 	public function __construct() {
 		add_filter( 'woocommerce_login_redirect', array( $this, 'set_redirect' ) );
+		add_filter( 'woocommerce_registration_redirect', array( $this, 'set_redirect' ) );
 		add_filter( 'woocommerce_product_get_review_count', array( $this, 'comments_number' ) );
 	}
 
