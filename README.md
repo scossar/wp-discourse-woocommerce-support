@@ -25,7 +25,7 @@ If you would like your login page to be at `http://example.com/my-account`, then
 To install this plugin, download a zip file of it from this page and then install it through your
 site's admin section.
 
-## Alternatives to install the plugin
+## Alternatives to installing the plugin
 
 For now, the plugin only contains two functions. If you prefer, you can just add these functions to your
 theme's `functions.php` file:
